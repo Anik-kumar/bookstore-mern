@@ -4,7 +4,7 @@ import Home from './pages/Home.jsx';
 import CreateBook from './pages/CreateBook.jsx';
 import EditBook from './pages/EditBook.jsx';
 import DeleteBook from './pages/DeleteBook.jsx';
-import ShowBooks from './pages/ShowBooks.jsx';
+import ShowBooks from './pages/ShowBook.jsx';
 // import EditBook from './pages/EditBook';
 
 
