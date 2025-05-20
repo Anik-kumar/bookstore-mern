@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { useSnackbar } from 'notistack';
+
 
 const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const { enqueueSnackbar } = useSnackbar();
 
 
   useEffect(() => {
@@ -19,7 +22,8 @@ const ShowBook = () => {
         setLoading(false);
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
+        enqueueSnackbar(error.message, {variant: 'error'});
         setLoading(false);
       });
   }, []);

@@ -7,12 +7,15 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksCard from '../components/home/BooksCard.jsx';
 import BooksTable from '../components/home/BooksTable.jsx';
+import { useSnackbar } from 'notistack';
 
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState('table');
+  const { enqueueSnackbar } = useSnackbar();
+
 
   useEffect(() => {
     setLoading(true);
@@ -23,6 +26,7 @@ const Home = () => {
       })
       .catch(err => {
         console.log(err);
+        enqueueSnackbar(error.message, {variant: 'error'});
         setLoading(false);
       });
   }, []);
